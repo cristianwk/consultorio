@@ -43,7 +43,9 @@ class Usuario_Model extends CI_Model{
      */
     public function login($nm_login, $ps_login)
     {   //echo"MODEL: <br>estou aqui";
-        $today = date('Y-m');
+        $timezone = new DateTimeZone("America/Sao_Paulo");
+        //$dataIni = new DateTime("today", $timezone);
+        $today = date('Y-m', $timezone);
         $this->db->where('nm_login', $nm_login);
         $this->db->where('ps_login', $ps_login);
         $data = $this->db->get('usuarios')->result();
