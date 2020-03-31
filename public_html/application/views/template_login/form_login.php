@@ -25,7 +25,7 @@
                     <div class="col-md-12 col-md-offset-1 contact-form" style="margin-left: 0px !important;">
                         <center><h3>Acesse sua Área</h3></center>
 
-                        <form class="form" method="post" action="/login/auth">
+                        <form class="form" method="post" action="login/auth">
                             <input class="email" type="text" name="email" placeholder="Email/Login">
                             <input class="email" type="password" name="ps_login" placeholder="">
                             <span class="error">

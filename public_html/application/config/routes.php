@@ -70,7 +70,7 @@ $route['usuario/mudar_senha'] = "usuario/update_senha";
 
 //para logar no sistema em: /views/template_login/form_login.php:28
 //$route['/login/auth'] = "controller/Login.php":25;
-$route['/login/auth'] = "usuario/auth";
+$route['login/auth'] = "login/auth";
 
 /* router medicos */
 $route['medico/registro'] = "usuario/registroMedico";

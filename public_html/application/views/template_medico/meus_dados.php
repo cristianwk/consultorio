@@ -432,8 +432,8 @@
                                                             <?php foreach ($pacientes as $paciente) { ?>
                                                             <tr>
                                                                 <td><?php echo $paciente->nm_paciente ?></td>
-                                                                <td><?php echo $paciente->data_cadastro ?></td>
-                                                                <td><?php echo $paciente->nr_celular ?></td>
+                                                                <td><?php echo $paciente->dt_nascimento ?></td>
+                                                                <td><?php echo $paciente->nr_telefone ?></td>
                                                             <?php } ?>
                                                             </tbody>
                                                         </table>
