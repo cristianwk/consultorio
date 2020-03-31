@@ -49,7 +49,7 @@ class Usuario_Model extends CI_Model{
         $this->db->where('nm_login', $nm_login);
         $this->db->where('ps_login', $ps_login);
         $data = $this->db->get('usuarios')->result();
-        $dt_atual = date('d');
+        @$dt_atual = date('d');
         //echo"<pre>";print_r($data);echo"</pre>";exit;
 
         if (count($data)===1){
