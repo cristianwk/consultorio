@@ -177,7 +177,10 @@ class Usuario_Model extends CI_Model{
 
     public function getNumeroConsultas($id)
     {   //echo"<br>id: ".$id;
-        $start_date = date('Y-m');
+        $timezone = new DateTimeZone("America/Sao_Paulo");
+        //$dataIni = new DateTime("today", $timezone);
+        @$start_date = date('Y-m', $timezone);
+        //$start_date = date('Y-m');
         $start_date = $start_date.'-01';
         $end_date = date('Y-m');
         $end_date = $end_date.'-30';

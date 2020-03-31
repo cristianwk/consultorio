@@ -67,7 +67,7 @@ class Login extends CI_Controller
                 $num_paciente = $n_pacientes['0'];
                 $pacientes = $num_paciente->num_paciente;
 
-                $consultas = $this->usuario->getNumeroConsultas($id);
+                @$consultas = $this->usuario->getNumeroConsultas($id);
                 $num_consultas = $consultas['0'];
                 $consultas = $num_consultas->consultas;
 
