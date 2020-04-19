@@ -280,10 +280,10 @@ header section -->
 <header class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-xs-3 header-logo">
+            <div class="col-md-2 header-logo">
                 <br>
                 <a href="<?php echo base_url(); ?>#home">
-                    <img src="<?php echo base_url('assets'); ?>/img/logo.png" alt="" class="img-responsive logo" style="width: 50%; height: 35%"></a>
+                    <img src="<?php echo base_url('assets'); ?>/img/logo.png" alt="" class="img-responsive logo"></a>
             </div>
             <div class="col-md-9" style="margin-left: -50;">
                 <nav class="navbar navbar-default">

@@ -76,11 +76,19 @@ class Seguranca
 
 # Função responsável por conexão de Banco de Dados
 function conexao() {
-	$dbcon = mysql_connect("mysql01.clickconsultorio1.hospedagemdesites.ws","clickconsultor","clickloca17") // host, usuário bd, senha bd
-	or die("Não foi possível conectar ao servidor msql: ".mysql_error()); // erro retornado no caso de erro de conexão
 
-	mysql_select_db("clickconsultor", $dbcon) // banco de dados
-	or die("Não foi possível selecionar o banco de dados desejado: ".mysql_error());  // erro retornado no caso de erro de conexão
+ $host='br540.hostgator.com.br';
+ $user='cons0645_drawk';
+ $password='drawk';
+ $db='cons0645_consultorio';
+
+ //PHP 5.4 o earlier (DEPRECATED)
+ //$con = mysqli_connect($host,$user,$password) or exit("Connection Error");
+ //$connection = mysqli_select_db($db, $con);
+
+ //PHP 5.5 (New method)
+ $connection =  mysqli_connect($host,$user,$password,$db);
+
 }
 
 conexao();

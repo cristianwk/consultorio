@@ -194,7 +194,7 @@
 <div class="footer-bottom">
     <div class="wrap">
         <div class="copy">
-            <p>© ClickConsultório 2016. All Rights Reserved <a href="http://www.awktec.com">Awk Consultoria</a></p>
+            <p>© ClickConsultório 2016. All Rights Reserved <a href="http://www.consultoriawk.com">Wk Consultoria</a></p>
         </div>
     </div>
 </div>

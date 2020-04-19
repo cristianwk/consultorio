@@ -1,6 +1,6 @@
 <?php 
 session_start();
-//echo"<br><pre>";print_r($_GET);echo"</pre>";
+//echo"<br>asdf<pre>";print_r($_GET);echo"</pre>";
 if($_GET["id"] != ""){
 $id = $_GET["id"];
 

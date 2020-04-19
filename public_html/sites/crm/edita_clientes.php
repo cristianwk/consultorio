@@ -13,10 +13,10 @@ session_start();
 
 $atendente = $_SESSION['usuarioID'];
 $nivel = $_SESSION['usuarioNivel'];
-$busca = $_GET["busca"];
-$escola = $_POST["escola"];
-$responsavel = $_POST["responsavel"];
-$email = $_POST["email"];
+@$busca = $_GET["busca"];
+@$escola = $_POST["escola"];
+@$responsavel = $_POST["responsavel"];
+@$email = $_POST["email"];
 
 
 if(!empty($_POST["atendente"])){
@@ -24,7 +24,7 @@ $atendente_id = $_POST["atendente"];
 
 }
 
-$action = $_GET["action"];
+@$action = $_GET["action"];
 
 
 if($action == 'del'){
@@ -41,18 +41,18 @@ window.location.href='edita_clientes.php'; }
 }
 
 
-$data_i = $_POST["data_inicial"];
-$data_f = $_POST["data_final"];
+@$data_i = $_POST["data_inicial"];
+@$data_f = $_POST["data_final"];
 
-$aux = explode('/',$data_i);
+@$aux = explode('/',$data_i);
  
-$data_i2 = $aux[2]."-".$aux[1]."-".$aux[0];
+@$data_i2 = $aux[2]."-".$aux[1]."-".$aux[0];
 
 //secho $data_i2;
 
-$aux2 = explode('/',$data_f);
+@$aux2 = explode('/',$data_f);
  
-$data_f2 = $aux2[2]."-".$aux2[1]."-".$aux2[0];
+@$data_f2 = $aux2[2]."-".$aux2[1]."-".$aux2[0];
 
 //echo $data_f2;
 
@@ -60,7 +60,7 @@ include_once('conexao.php');
 
 $result = mysql_query("SELECT * FROM clientes WHERE cliente_status = '1' ORDER BY cliente_historico_data DESC");
 $result1 = mysql_query("SELECT * FROM historico ORDER BY historico_prospecto_id DESC");
-$row1 = mysql_fetch_array($result1);
+@$row1 = mysql_fetch_array($result1);
 
 //$busca = mysql_query("SELECT * FROM historico WHERE historico_data BETWEEN '$data_i2' AND '$data_f2' order by historico_data DESC");
 
@@ -107,7 +107,7 @@ $busca45 = mysql_query("SELECT * from usuarios where id = $atendente_id");
 $row45 = mysql_fetch_array($busca45);
 	}
 	
-	if($busca == "" and $data_id == "" and $data_f == ""){	
+	if($busca == "" and @$data_id == "" and @$data_f == ""){	
 	
 	$busca2 = mysql_query("SELECT * FROM clientes where cliente_status != '0' ORDER BY cliente_historico_data DESC");
 	
@@ -246,7 +246,7 @@ Data Final<br />
     
     <td>Filtrar por Vendedor<br />
 <?php if($nivel == "1"){ ?><form name="busca_atendente" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>?busca=atendente"><select name="atendente">
-            <option value="<?php echo $row45["id"]; ?>"><?php echo $row45["nome"]; ?></option>
+            <option value="<?php echo @$row45["id"]; ?>"><?php echo @$row45["nome"]; ?></option>
     
     <?php while($row_atendentes = mysql_fetch_array($atendentes)){?>
 
@@ -278,7 +278,7 @@ Data Final<br />
     <td>A&ccedil;&atilde;o</td>
 
   </tr>
-	<?php while($row3 = mysql_fetch_array($busca2))
+	<?php while(@$row3 = mysql_fetch_array(@$busca2))
   { if ($contacor % 2 == 1){
 $coratual = "#DDDDDD";
 }else{

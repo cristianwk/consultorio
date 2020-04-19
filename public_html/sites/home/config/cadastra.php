@@ -9,7 +9,7 @@
 include("./config/conexao.php");
 include("./config/default.php");
 
-echo"<br> Cadastra2: <pre>";print_r($_POST);echo"</pre><br>";die;
+//echo"<br> Cadastra2: <pre>";print_r($_POST);echo"</pre><br>";die;
 /*
 Array
 (

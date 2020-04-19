@@ -21,7 +21,7 @@
 
             <div class="col-md-12 col-sm-6" style="padding: 9%;background: url('http://dev.consultorio.com/assets/img/medicos.jpg') no-repeat;
     background-size: 100%;    width: 100%;    height: 374px;">
-                <form method="get" action="/consulta/pesquisa">
+                <form method="get" action="<?php echo base_url(); ?>consulta/pesquisa">
                     <select class="form-control formSearch" id="especialidade" name="especialidade" required title="Escolha uma especialidade">
                         <option value="">Seleciona uma Especialidade</option>
                         <?php foreach($especializacoes as $esp){ ?>

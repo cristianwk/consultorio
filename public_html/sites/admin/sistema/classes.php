@@ -119,7 +119,8 @@ echo "$largura, $altura"; exit;
 
 $obj_seguranca = new seguranca;
 
-class seguranca {
+if (!class_exists('seguranca')) {
+//class seguranca {
 
 	function excluir_usuario($login) {
 

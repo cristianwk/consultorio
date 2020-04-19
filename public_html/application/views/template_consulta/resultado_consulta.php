@@ -62,7 +62,7 @@
 
                 <div class="row filterResult">
                     Mostrar mais filtros
-                    <form method="get" action="/consulta/pesquisa">
+                    <form method="get" action="<?php echo base_url(); ?>consulta/pesquisa">
                         <input type="text"  name="cep" id="cep" >
                         <select class="" id="especialidade" name="especialidade" required>
                             <option value="">Seleciona uma Especialidade</option>

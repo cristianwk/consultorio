@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: bruno
+ * Autor: Cristian
  * Date: 11/21/15
  * Time: 10:17 AM
  */
@@ -26,7 +26,7 @@ class ConsultaController extends CI_Controller
     }
 
     public function index()
-    {
+    { //echo"<br>controller";exit;
         $data['especializacoes'] = $this->especializacao->getAllEspecialidade();
         $this->load->view('layout_principal/top');
         $this->load->view('template_consulta/consulta', $data);

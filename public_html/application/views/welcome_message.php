@@ -20,7 +20,7 @@
 						<div class="carousel-caption">
 							<h2 style="color: cornflowerblue; font-size: 50px;">Sistema de Agendamento de Consultas</h2>
 							<p style=" margin-top: 10px; margin-bottom: 50px; height: 30px;">Encontre sua consulta mais rápido!</p>
-							<a class="pesquisar" href="/consulta/nova">Consulte!</a>
+							<a class="pesquisar" href="<?php echo base_url(); ?>consulta/nova">Consulte!</a>
 						</div>
 					</div>
 				</div>
@@ -282,7 +282,7 @@
 									<h4>Tem um problema de saúde e quer marcar uma consulta?</h4>
 									<div class="xs-mt-30 xs-mb-20 text-center">
 										<button data-modal="md-comofunciona" class="btn btn-space btn-primary md-trigger">Como Funciona?</button>
-										<a href="/consulta/nova" class="btn btn-space btn-success md-trigger" role="button" aria-pressed="true">Marcar Consulta</a>
+										<a href="<?php echo base_url(); ?>consulta/nova" class="btn btn-space btn-success md-trigger" role="button" aria-pressed="true">Marcar Consulta</a>
 									</div>
 									<!-- Nifty Modal-->
 									<div id="md-comofunciona" class="modal-container modal-effect-6" style="perspective: none;padding-top: 56px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -309,7 +309,7 @@
 													</div>
 													<div class="xs-mt-50">
 														<button type="button" data-dismiss="modal" class="btn btn-default btn-space modal-close">Voltar</button>
-														<a href="/consulta/nova" class="btn btn-space btn-primary md-trigger" role="button" aria-pressed="true">Marcar Consulta</a>
+														<a href="<?php echo base_url(); ?>consulta/nova" class="btn btn-space btn-primary md-trigger" role="button" aria-pressed="true">Marcar Consulta</a>
 													</div>
 												</div>
 											</div>
