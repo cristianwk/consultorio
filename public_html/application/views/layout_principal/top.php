@@ -280,7 +280,7 @@ header section -->
 <header class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-2 header-logo">
+            <div class="col-md-2 header-logo" style="margin-left: -50;">
                 <br>
                 <a href="<?php echo base_url(); ?>#home">
                     <img src="<?php echo base_url('assets'); ?>/img/logo.png" alt="" class="img-responsive logo"></a>

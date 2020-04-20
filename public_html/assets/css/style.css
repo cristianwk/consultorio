@@ -17,7 +17,7 @@ h1, h2{
 /*header area*/
 .top-header{
 	background: #fff !important;
-	position: fixed;
+	/*position: fixed;*/
 	width: 100%;
 	z-index: 99999;
 }
@@ -676,7 +676,7 @@ responsive area
 	  font-size: 26px;
 	}
 	h2 {
-  		font-size: 75px !important;
+  		font-size: 50px !important;
   	}
   	h4 {
   		font-size: 22px !important;
@@ -1068,7 +1068,7 @@ div#bs-example-navbar-collapse-1 {
 	}
 
 	img.img-responsive.logo {
-		width: 100% !important;
+		width: 80% !important;
 	}
 }
 
@@ -1080,7 +1080,7 @@ div#bs-example-navbar-collapse-1 {
 		float: left !important;
 	}
 	img.img-responsive.logo {
-		width: 70% !important;
+		width: 100% !important;
 	}
 	div#bs-example-navbar-collapse-1 {
 		margin-right: 0px !important;

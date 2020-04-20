@@ -4,7 +4,6 @@
 		<div class="row">
 
 			<div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
-				<div class="header-backup"></div>
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
@@ -12,7 +11,7 @@
 						<div class="carousel-caption">
 							<h2 style="color: cornflowerblue; font-size: 50px;">Sistema de Agendamento de Consultas</h2>
 							<p style=" margin-top: 10px; margin-bottom: 50px; height: 30px;">Encontre sua consulta mais rápido!</p>
-							<a class="pesquisar" href="/consulta/nova">Consulte!</a>
+							<a class="pesquisar" href="<?php echo base_url(); ?>/consulta/nova">Marque sua Consulta!</a>
 						</div>
 					</div>
 					<div class="item">
@@ -20,7 +19,7 @@
 						<div class="carousel-caption">
 							<h2 style="color: cornflowerblue; font-size: 50px;">Sistema de Agendamento de Consultas</h2>
 							<p style=" margin-top: 10px; margin-bottom: 50px; height: 30px;">Encontre sua consulta mais rápido!</p>
-							<a class="pesquisar" href="<?php echo base_url(); ?>consulta/nova">Consulte!</a>
+							<a class="pesquisar" href="<?php echo base_url(); ?>consulta/nova">Marque sua Consulta!</a>
 						</div>
 					</div>
 				</div>
@@ -281,8 +280,8 @@
 								<div class="panel-body">
 									<h4>Tem um problema de saúde e quer marcar uma consulta?</h4>
 									<div class="xs-mt-30 xs-mb-20 text-center">
-										<button data-modal="md-comofunciona" class="btn btn-space btn-primary md-trigger">Como Funciona?</button>
-										<a href="<?php echo base_url(); ?>consulta/nova" class="btn btn-space btn-success md-trigger" role="button" aria-pressed="true">Marcar Consulta</a>
+										<button data-modal="md-comofunciona" class="btn btn-space btn-primary md-trigger" style="font-size: 20px">Como Funciona?</button>
+										<a href="<?php echo base_url(); ?>consulta/nova" class="btn btn-space btn-success md-trigger" role="button" aria-pressed="true" style="font-size: 20px">Marcar Consulta</a>
 									</div>
 									<!-- Nifty Modal-->
 									<div id="md-comofunciona" class="modal-container modal-effect-6" style="perspective: none;padding-top: 56px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -410,7 +409,7 @@
 						<textarea class="message" name="message" id="message" cols="30" rows="10" placeholder="Menssagem"></textarea>
 
 						<div class="be-checkbox" style="text-align: left;">
-							<input id="check1" name="check1" type="checkbox">
+							<input id="check1" name="check1" type="checkbox" style="width: 10%">
 							<label for="check1" style="font-size: x-large; color: #d9edf7">Eu não sou um robo!</label>
 						</div>
 							<input class="submit-btn" type="submit" value="ENVIAR">
