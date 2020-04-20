@@ -25,7 +25,7 @@
 ============================================================= -->
 
 <script src="<?php echo base_url('assets'); ?>/js/cep.js"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS8vYJ2rzyPIzSCUBkKnILb4IiCYhkC00"></script>
 <script src="<?php echo base_url('assets'); ?>/js/gmaps.js"></script>
 <script src="<?php echo base_url('assets'); ?>/js/smoothscroll.js"></script>
 <script src="<?php echo base_url('assets'); ?>/js/bootstrap.min.js"></script>
