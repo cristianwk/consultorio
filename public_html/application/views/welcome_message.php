@@ -395,7 +395,7 @@
 						<!--<ul><li><i class="fa fa-phone"></i><span>Fone:</span> (048) 3333.2211</li></ul>
 						<ul><li><i class="fa fa-fax"></i><span>Fax:</span> (048) 3333.2210</li></ul>
 						-->
-						<ul><li><i class="fa fa-envelope"></i><span>Email:</span> cristian@clickconsultorio.com</li></ul>
+						<ul><li><i class="fa fa-envelope"></i><span>Email:</span> cristian@consultoriawk.com</li></ul>
 					</div>
 				</div>
 
