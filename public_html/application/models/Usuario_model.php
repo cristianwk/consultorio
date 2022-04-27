@@ -154,8 +154,8 @@ class Usuario_Model extends CI_Model{
 
     public function validaMensalidade($id_usuario, $today)
     {
-        echo"<br>today: ".$today;
-        echo"<br>usuario: ".$id_usuario;
+        //echo"<br>today: ".$today;
+        //echo"<br>usuario: ".$id_usuario;
         $this->db->select('*');
         $this->db->from('pagamentos');
         $this->db->where('id_usuario', $id_usuario);
