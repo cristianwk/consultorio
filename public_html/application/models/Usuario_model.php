@@ -64,7 +64,8 @@ class Usuario_Model extends CI_Model{
                 //echo "<br>valida mensalidade2:<pre> ";print_r($x);echo"</pre>";
                     if ($this->validaMensalidade($data[0]->id_usuario, $today)) {//echo"<br>um";
                         $dados = array('usuario' => $data[0], 'logado' => TRUE);
-                        $this->session->set_userdata($dados);
+                        //$this->session->set_userdata($dados);
+                        $this->session->set_flashdata($dados);
                         $this->session->usuario;
                         $res = $this->session->usuario;
 
