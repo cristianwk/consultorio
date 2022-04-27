@@ -12,9 +12,9 @@ class PacienteController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata('usuario')->id_usuario || !$this->session->userdata('logado')) {
-            redirect(base_url('/login'));
-        }
+        //if (!$this->session->userdata('usuario')->id_usuario || !$this->session->userdata('logado')) {
+            //redirect(base_url('/login'));
+        //}
         $this->load->model('Usuario_model','usuario');
         $this->load->model('Endereco_Model','endereco');
         $this->load->model('Consulta_Model','consulta');
