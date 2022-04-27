@@ -88,7 +88,7 @@ class Login extends CI_Controller
             else {echo"<br>aqui2";
                 //se é plano pago e esta em dia entra aqui
                 //echo"<pre>x: ";print_r($txt);echo"</pre>";exit;
-                return redirect('/medico/perfil', $txt);
+                return redirect('/medico/perfil/', $txt);
             }
         } else {echo"<br>aqui3";exit;
             $this->session->set_flashdata('msg', 'Error! - Verifique seu login ou senha!');
