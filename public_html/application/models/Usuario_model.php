@@ -67,7 +67,14 @@ class Usuario_Model extends CI_Model{
                         $this->session->set_userdata($dados);
                         $this->session->usuario;
                         $res = $this->session->usuario;
-                        //echo"<br>res::<pre>";print_r($res);echo"<pre>";exit;
+
+                        //$user = $data[0]->id_usuario;
+                        //session_start();
+                        //$_SESSION['logged_in'] = true;
+                        //$_SESSION['user_id'] = $user['id_usuario'];
+                        //$_SESSION['user_name'] = $user['nm_login'];
+
+                        //echo"<br>res::<pre>";print_r($_SESSION);echo"<pre>";exit;
                         //echo"<br>usuario::".$data[0]->id_usuario;exit;
                         return $data[0]->id_usuario;
                     } else {echo"<br>dois";exit;
