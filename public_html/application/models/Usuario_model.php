@@ -60,7 +60,7 @@ class Usuario_Model extends CI_Model{
                 //echo"<br>valida mensalidade1:<pre> ";print_r($x);echo"</pre>";
                 $plano = $this->getPlanoId($data[0]->id_usuario);
                 //echo"<br>plano:".$plano[0]->id_plano;
-                echo"<br>plano: <pre>";print_r($plano);echo"</pre>";
+                //echo"<br>plano: <pre>";print_r($plano);echo"</pre>";
                 //echo "<br>valida mensalidade2:<pre> ";print_r($x);echo"</pre>";
                     if ($this->validaMensalidade($data[0]->id_usuario, $today)) {echo"<br>um";
                         $dados = array('usuario' => $data[0], 'logado' => TRUE);
