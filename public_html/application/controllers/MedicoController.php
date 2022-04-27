@@ -12,10 +12,10 @@ class MedicoController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        echo"<br>medicoController::<pre>";print_r($this->session);echo"<pre>";exit;
-        if (!$this->session->userdata('usuario')->id_usuario || !$this->session->userdata('logado')) {
-            redirect(base_url('/login'));
-        }
+        //echo"<br>medicoController::<pre>";print_r($this->session);echo"<pre>";exit;
+        //if (!$this->session->userdata('usuario')->id_usuario || !$this->session->userdata('logado')) {
+            //redirect(base_url('/login'));
+        //}
         $this->load->helper(array('form', 'url'));
         $this->load->model('Usuario_model','usuario');
         $this->load->model('Endereco_Model','endereco');
@@ -29,8 +29,9 @@ class MedicoController extends CI_Controller
         $this->load->model('Charts_model','charts');
     }
 
-    public function perfil()
+    public function perfil($txt)
     {
+        echo"<br>medicoController::<pre>";print_r($GLOBALS);echo"<pre>";exit;
         $id = $this->session->usuario->id_usuario;
         
         $dados['medico'] = $this->usuario->getUsuarioById($id);

@@ -48,19 +48,20 @@ class Login extends CI_Controller
         }
         //echo"<br>saldo: ".$txt['saldoDevedor'];
         if (!empty($txt)){
-            //echo"<br>perfil: ";echo $txt[0]->id_perfil;exit;
-            if ($perfil[0]->id_perfil == 1) {//echo"<br>perfil é um ".$perfil[0]->id_perfil;exit;
+            //echo"<br>txt: <pre>";print_r($perfil);echo"</pre>";die;
+            echo"<br>perfil: ";echo $txt['id_perfil'];
+            if ($txt['id_perfil'] == 1) {//echo"<br>perfil é um ".$perfil['id_perfil'];exit;
                 if($ajax == 'ajax'){
                     echo json_encode( array( 'logado' => true ) );
                 } else {
                     return redirect('/paciente/perfil');
                 }
-            } elseif($perfil[0]->id_perfil == 2  && @$txt['saldoDevedor'] == 1){//echo"<br>perfil é dois ".$perfil[0]->id_perfil;exit;
-                    $msg = "<font color='red' size='3'><B> Você possui mensalidades em aberto neste mês!  <a href='/pagamento/medico/" .$perfil[0]->id_usuario . "/" . $txt[0]->id_plano ."'><font color='red' size='3'><B>CLIQUE AQUI!</B></font></a> para realizar o pagamento!</B></font>";
+            } elseif($txt['id_perfil'] == 2  && @$txt['saldoDevedor'] == 1){//echo"<br>perfil é dois ".$txt['id_perfil'];exit;
+                    $msg = "<font color='red' size='3'><B> Você possui mensalidades em aberto neste mês!  <a href='/pagamento/medico/" .$perfil['id_usuario'] . "/" . $txt['id_plano'] ."'><font color='red' size='3'><B>CLIQUE AQUI!</B></font></a> para realizar o pagamento!</B></font>";
                 $this->session->set_flashdata('msg2', $msg);
                     return redirect('/login');
-            } elseif ($perfil[0]->id_plano == 1){//plano free
-                //echo"<br>plano free";//exit;
+            } elseif ($txt['id_plano'] == 1){
+                echo"<br>plano free";//exit;
                 $id = $_SESSION['usuario']->id_usuario;//echo"<br>id: ".$id;exit;
                 $n_pacientes = $this->usuario->getNumeroPacientes($id);//vai em usuario_model.php:168
                 //echo"<pre>x: ";print_r($n_pacientes);echo"</pre>";exit;
@@ -84,11 +85,12 @@ class Login extends CI_Controller
                     return redirect('/medico/perfil');
                 }
             }
-            else {//echo"<br>aqui2";exit;
+            else {echo"<br>aqui2";
                 //se é plano pago e esta em dia entra aqui
-                return redirect('/medico/perfil');
+                //echo"<pre>x: ";print_r($txt);echo"</pre>";exit;
+                return redirect('/medico/perfil', $txt);
             }
-        } else {//echo"<br>aqui3";exit;
+        } else {echo"<br>aqui3";exit;
             $this->session->set_flashdata('msg', 'Error! - Verifique seu login ou senha!');
             if($txt[0]->id_perfil == 2 && $txt[0]->saldoDevedor == true){
                 echo "aqui";die;
