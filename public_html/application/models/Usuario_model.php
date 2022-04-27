@@ -113,7 +113,7 @@ class Usuario_Model extends CI_Model{
                             }
                         }
                 }
-            } else {echo "else";
+            } else {//echo "else";
                 $dados = array('usuario' => $data[0], 'logado' => TRUE);
                 $this->session->set_userdata($dados);
                 return $result =  array('id_perfil' => $data[0]->id_perfil, 'saldoDevedor' => false);
