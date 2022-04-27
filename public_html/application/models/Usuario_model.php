@@ -62,7 +62,7 @@ class Usuario_Model extends CI_Model{
                 //echo"<br>plano:".$plano[0]->id_plano;
                 //echo"<br>plano: <pre>";print_r($plano);echo"</pre>";
                 //echo "<br>valida mensalidade2:<pre> ";print_r($x);echo"</pre>";
-                    if ($this->validaMensalidade(@$data[0]->id_usuario, $today)) {echo"<br>um";
+                    if ($this->validaMensalidade(@$data[0]->id_usuario, @$today)) {echo"<br>um";
                         $dados = array('usuario' => $data[0], 'logado' => TRUE);
                         //$this->session->set_userdata($dados);
                         $this->session->set_flashdata($dados);
@@ -113,7 +113,7 @@ class Usuario_Model extends CI_Model{
                             }
                         }
                 }
-            } else {echo "else";exit;
+            } else {echo "else";
                 $dados = array('usuario' => $data[0], 'logado' => TRUE);
                 $this->session->set_userdata($dados);
                 return $result =  array('id_perfil' => $data[0]->id_perfil, 'saldoDevedor' => false);

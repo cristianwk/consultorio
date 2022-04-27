@@ -48,12 +48,12 @@ class Login extends CI_Controller
         }
         //echo"<br>saldo: ".$txt['saldoDevedor'];
         if (!empty($txt)){
-            //echo"<br>txt: <pre>";print_r($perfil);echo"</pre>";die;
-            echo"<br>perfil: ";echo $txt['id_perfil'];
+            //echo"<br>txt: <pre>";print_r($txt);echo"</pre>";die;
+            //echo"<br>perfil: ";echo $txt['id_perfil'];
             if ($txt['id_perfil'] == 1) {//echo"<br>perfil é um ".$perfil['id_perfil'];exit;
                 if($ajax == 'ajax'){
                     echo json_encode( array( 'logado' => true ) );
-                } else {
+                } else {//echo"<br>é paciente";exit;
                     return redirect('/paciente/perfil');
                 }
             } elseif($txt['id_perfil'] == 2  && @$txt['saldoDevedor'] == 1){//echo"<br>perfil é dois ".$txt['id_perfil'];exit;
@@ -88,9 +88,9 @@ class Login extends CI_Controller
             else {echo"<br>aqui2";
                 //se é plano pago e esta em dia entra aqui
                 //echo"<pre>x: ";print_r($txt);echo"</pre>";exit;
-                //return redirect('/medico/perfil/', $txt);
+                return redirect('/medico/perfil/', $txt);
                 //$this->render('/medico/perfil/', $txt);
-                $this->load->view('medico/perfil', $txt);
+                //$this->load->view('medico/perfil', $txt);
             }
         } else {echo"<br>aqui3";exit;
             $this->session->set_flashdata('msg', 'Error! - Verifique seu login ou senha!');
