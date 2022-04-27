@@ -83,7 +83,7 @@ class Usuario_Model extends CI_Model{
                                 $this->session->set_userdata($dados);
                                 $this->session->usuario;
                                 $res = $this->session->usuario;
-                                echo "<br>retorna:<pre>";print_r($data[0]); echo"</pre> ";exit;
+                                echo "<br>retorna:<pre>";print_r($data[0]); echo"</pre> ";
                                 return $data[0]->id_usuario;
                                 //return $data[0];
                             } else {echo"<br>seis";//exit;
