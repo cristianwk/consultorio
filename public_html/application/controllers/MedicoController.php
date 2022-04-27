@@ -12,7 +12,7 @@ class MedicoController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        echo"<br>medicoController::<pre>";print_r($this->session);echo"<pre>";
+        echo"<br>medicoController::<pre>";print_r($this->session);echo"<pre>";exit;
         if (!$this->session->userdata('usuario')->id_usuario || !$this->session->userdata('logado')) {
             redirect(base_url('/login'));
         }
