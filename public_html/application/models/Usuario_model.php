@@ -64,9 +64,9 @@ class Usuario_Model extends CI_Model{
                 //echo"<br>valida mensalidade1:<pre> ";print_r($x);echo"</pre>";
                 $plano = $this->getPlanoId($data[0]->id_usuario);
                 //echo"<br>plano:".$plano[0]->id_plano;
-                echo"<br>plano: <pre>";print_r($plano);echo"</pre>";
-                echo "<br>valida mensalidade2:<pre> ";print_r($x);echo"</pre>";
-                    if ($this->validaMensalidade(@$data[0]->id_usuario, @$today)) {echo"<br>um";
+                //echo"<br>plano: <pre>";print_r($plano);echo"</pre>";
+                //echo "<br>valida mensalidade2:<pre> ";print_r($x);echo"</pre>";
+                    if ($this->validaMensalidade(@$data[0]->id_usuario, @$today)) {//echo"<br>um";
                         $dados = array('usuario' => $data[0], 'logado' => TRUE);
                         //$this->session->set_userdata($dados);
                         $this->session->set_flashdata($dados);
@@ -95,7 +95,7 @@ class Usuario_Model extends CI_Model{
                         //echo"<br>usuario::".$data[0]->id_usuario;exit;
                         //return $data[0]->id_usuario;
                         return $_SESSION;
-                    } else {echo"<br>dois";exit;
+                    } else {echo"<br>dois";
                         //se o plano for free
                         if($data[0]->id_plano == 1){echo"<br>tres";exit;
                             $dados = array('usuario' => $data[0], 'logado' => TRUE);
