@@ -53,10 +53,10 @@
                                                         <td><?php echo $consulta->nm_medico ?></td>
                                                         <td>
                                                             <?php
-                                                                //echo"<br>id da consulta: ".$consulta->id_consulta;die;
+                                                                echo"<br>id da consulta: ".$consulta->id_consulta;
                                                                 $this->db->where('id_consulta',$consulta->id_consulta);
                                                                 $txt = $this->db->get('consulta_medico_avaliacao')->result();
-                                                                //echo"<br>result: ".$txt;die;
+                                                                echo"<br>result: ".$txt;die;
                                                                 if ($txt){
                                                                     echo "Nota: " . $txt[0]->nota;
                                                                 } else {

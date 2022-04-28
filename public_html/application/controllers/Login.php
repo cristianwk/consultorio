@@ -112,10 +112,10 @@ class Login extends CI_Controller
                     return redirect('/medico/perfil');
                 }
             }
-            else {echo"<br>aqui2";exit;
+            else {echo"<br>aqui2";
                 //se é plano pago e esta em dia entra aqui
                 //echo"<pre>x: ";print_r($txt);echo"</pre>";exit;
-                return redirect('/medico/perfil/', $txt);
+                return redirect('/medico/perfil/');
                 //$this->render('/medico/perfil/', $txt);
                 //$this->load->view('medico/perfil', $txt);
             }
