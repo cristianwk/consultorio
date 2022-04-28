@@ -31,8 +31,8 @@ class MedicoController extends CI_Controller
 
     public function perfil()
     {
-        echo"<br>medicoController::<pre>";print_r($GLOBALS);echo"<pre>";
-        $id = $this->session->usuario->id_usuario;
+        //echo"<br>medicoController::<pre>";print_r($GLOBALS);echo"<pre>";
+        $id = '61';//$this->session->usuario->id_usuario;
         
         $dados['medico'] = $this->usuario->getUsuarioById($id);
         $dados['especialidades'] = $this->medico->getEspecialidade($id);
