@@ -13,13 +13,13 @@ function formatar_campo($arg, $tipo = 'string') {
 
 	switch ($tipo) {
 		case 'string': 
-			$arg = ereg_replace("[^a-zA-Z0-9 .]", "", strtr($arg, "áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ ", "aaaaeeiooouucAAAAEEIOOOUUC "));
+			$arg = ereg_replace("[^a-zA-Z0-9 .]", "", strtr($arg, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ", "aaaaeeiooouucAAAAEEIOOOUUC "));
 		break;
 		case 'numerico': 
 			$arg = ereg_replace("[^0-9.]", "", $arg);
 		break;
 		case 'arquivo': 
-			$arg = ereg_replace("[^a-zA-Z0-9_.]", "", strtr($arg, "áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ ", "aaaaeeiooouucAAAAEEIOOOUUC_"));
+			$arg = ereg_replace("[^a-zA-Z0-9_.]", "", strtr($arg, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ", "aaaaeeiooouucAAAAEEIOOOUUC_"));
 		break;
 	}
 
@@ -141,15 +141,15 @@ class seguranca {
 
 			if (fwrite($arquivo, $novo_arquivo) == false) {
 
-				$mesg .= "Não gravou no arquivo<br>"; 
+				$mesg .= "Nï¿½o gravou no arquivo<br>"; 
 
 			} else {
 
-				$mesg .= "Usuário <b>$login</b> excluído com sucesso";
+				$mesg .= "Usuï¿½rio <b>$login</b> excluï¿½do com sucesso";
 
 			}
 
-		} else $mesg .= "Não abriu o arquivo<br>";
+		} else $mesg .= "Nï¿½o abriu o arquivo<br>";
 
 		return $mesg;
 
@@ -195,7 +195,7 @@ class seguranca {
 
 		if ($this->usuario_existe($login) and ($login != $login_antigo) ) {
 
-			$mesg .= "Usuário <b>$login</b> já cadastrado";
+			$mesg .= "Usuï¿½rio <b>$login</b> jï¿½ cadastrado";
 
 		} elseif (!$novo_arquivo) {
 
@@ -205,17 +205,17 @@ class seguranca {
 
 			if (fwrite($arquivo, $novo_arquivo) == false) {
 
-				$mesg .= 'Não gravou<br>'; 
+				$mesg .= 'Nï¿½o gravou<br>'; 
 
 			} else {
 
-					$mesg .= "Usuário <b>$login_antigo</b> alterado com sucesso<br>";
+					$mesg .= "Usuï¿½rio <b>$login_antigo</b> alterado com sucesso<br>";
 
-					if ($login_antigo != $novo_login and $login_antigo == $_SESSION['login']) $mesg .= "Usuário <b>$login_antigo</b> será deslogado<br>";
+					if ($login_antigo != $novo_login and $login_antigo == $_SESSION['login']) $mesg .= "Usuï¿½rio <b>$login_antigo</b> serï¿½ deslogado<br>";
 
 				}
 
-		} else $mesg .= 'Não abriu o arquivo<br>';
+		} else $mesg .= 'Nï¿½o abriu o arquivo<br>';
 
 		return $mesg;
 
@@ -244,21 +244,21 @@ class seguranca {
 
 		if ($this->usuario_existe($login)) {
 
-			$mesg .= "Usuário <b>$login</b> já cadastrado";
+			$mesg .= "Usuï¿½rio <b>$login</b> jï¿½ cadastrado";
 
 		} elseif ($arquivo = fopen(ARQ_USUARIOS, 'a+')) {
 
 			if (fwrite($arquivo, $usuario) == false) {
 
-				$mesg .= "Não gravou no arquivo<br>";
+				$mesg .= "Nï¿½o gravou no arquivo<br>";
 
 			} else {
 
-				$mesg .= "Usuário <b>$login</b> cadastrado com sucesso";
+				$mesg .= "Usuï¿½rio <b>$login</b> cadastrado com sucesso";
 
 			}
 
-		} else $mesg .= "Não abriu o arquivo<br>";
+		} else $mesg .= "Nï¿½o abriu o arquivo<br>";
 
 		return $mesg;
 
@@ -322,7 +322,7 @@ printr($usuarios);
 
 		} elseif ($login and $senha) {
 
-			$mesg .= "Usuário não autorizado";
+			$mesg .= "UsuÃ¡rio nÃ£o autorizado";
 			session_destroy();
 			echo "<meta http-equiv=\"refresh\" content=\"0\" url=\"index.php\">";
 

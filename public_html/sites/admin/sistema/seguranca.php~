@@ -44,7 +44,7 @@
 	
 			} elseif ($_POST['txt_login'] and $_POST['txt_senha']) {
 	
-				$mesg .= "Usuário não autorizado";
+				$mesg .= "UsuÃ¡rio nÃ£o autorizado";
 				session_destroy();
 				header("location:./../../");
 	
@@ -65,7 +65,7 @@
 
 	} else {
 
-		$mesg .= "Login e/ou Senha não digitada";
+		$mesg .= "Login e/ou Senha nï¿½o digitada";
 
 	}
 

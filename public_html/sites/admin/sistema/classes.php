@@ -326,7 +326,7 @@ if (!class_exists('seguranca')) {
 
 		} elseif ($login and $senha) {
 
-			$mesg .= "Usu�rio n�o autorizado";
+			$mesg .= "Usuário não autorizado";
 			session_destroy();
 			echo "<meta http-equiv=\"refresh\" content=\"0\" url=\"index.php\">";
 

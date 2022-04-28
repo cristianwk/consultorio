@@ -22,8 +22,7 @@ class PacienteController extends CI_Controller
 
     public function perfil()
     {
-        echo"<br>controller paciente";
-        echo"<br>res::<pre>";print_r($GLOBALS);echo"<pre>";exit;
+        echo"<br>controller paciente::".$id;exit;
         $id = $this->session->usuario->id_usuario;
         $dados['paciente'] = $this->usuario->getUsuarioById($id);
         $dados['endereços'] = $this->endereco->getEnderecoUsuarioById($id);

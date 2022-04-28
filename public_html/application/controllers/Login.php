@@ -13,6 +13,8 @@ class Login extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Usuario_model','usuario');
+        $this->load->model('Endereco_Model','endereco');
+        $this->load->model('Consulta_Model','consulta');
     }
 
     public function index()
@@ -24,8 +26,8 @@ class Login extends CI_Controller
 
     public function auth()
     {   
-        echo"<br>Estou no login Controller";
-        echo"<br>post: <pre>";print_r($_POST);echo"</pre>";
+        //echo"<br>Estou no login Controller";
+        //echo"<br>post: <pre>";print_r($_POST);echo"</pre>";
         $nm_login = $this->input->post('nm_login');
         $ps_login = md5($this->input->post('ps_login'));
         $txt = $this->usuario->login($nm_login, $ps_login);//vai em usuario_model.php:44
@@ -41,9 +43,9 @@ class Login extends CI_Controller
         $perfil = $this->db->get('usuarios')->result();
 
         //echo"Controller: <pre>txt: ";print_r($txt);echo"</pre>";
-        echo"<br>post: <pre>";print_r($perfil);echo"</pre>";
+        //echo"<br>post: <pre>";print_r($perfil);echo"</pre>";
 
-        if(empty($txt)){echo"<br>aqui1";exit;
+        if(empty($txt)){//echo"<br>aqui1";exit;
             $this->session->set_flashdata('msg', 'Error! - Login ou Senha não conferem!');
             return redirect('/login');
         }
@@ -53,17 +55,33 @@ class Login extends CI_Controller
         }
         //echo"<br>saldo: ".$txt['saldoDevedor'];
         if (!empty($txt)){
-            echo"<br>txt: <pre>";print_r($txt);echo"</pre>";
-            echo"<br>perfilXX:<pre> ";print_r($perfil);echo"</pre>";
-            //echo"<br>perfil1 é um ".$txt['id_perfil']."--";
+            //echo"<br>txt: <pre>";print_r($txt);echo"</pre>";
+            //echo"<br>perfilXX:<pre> ";print_r($perfil);echo"</pre>";
+            //echo"<br>perfil id_usuario :".$perfil[0]->id_usuario."--";
             
             if ($txt['id_perfil'] == 1) {//echo"<br>perfil2 é um ".$txt['id_perfil'];exit;
-                if($ajax == 'ajax'){echo"<br>é asdf";exit;
+                if($ajax == 'ajax'){//echo"<br>é asdf";exit;
                     echo json_encode( array( 'logado' => true ) );
                 } else {//echo"<br>é paciente";exit;
-                    //$_SESSION['usuario']->id_usuario = $txt['id_usuario'];
-                    $this->session->set_userdata('user_id', $txt['id_usuario']);
-                    return redirect('/paciente/perfil');
+                    if (session_status() !== PHP_SESSION_ACTIVE) {
+                        session_start();
+                    }
+                    //echo"<br>idUsuario: ".$perfil[0]->id_usuario;
+                    // cria variáveis de sessão e as inicializa com os dados do formulário:
+                    $_SESSION['usuario']->id_usuario = $perfil[0]->id_usuario;
+                    $usuario['id_usuario'] = $perfil[0]->id_usuario;
+                    //echo"<br>session::".$_SESSION['usuario']->id_usuario;exit;
+                    $id = $perfil[0]->id_usuario;      
+                    //echo"session: <pre>";print_r($_SESSION);echo"</pre>";exit;              
+                    //return redirect('/paciente/perfil');
+                    $id = $this->session->usuario->id_usuario;
+                    $dados['paciente'] = $this->usuario->getUsuarioById($id);
+                    $dados['endereços'] = $this->endereco->getEnderecoUsuarioById($id);
+                    $dados['consultas'] = $this->consulta->getConsultaPacienteId($id);
+                    //echo"dados: <pre>";print_r($dados);echo"</pre>";exit;
+                    $this->load->view('layout_principal/top');
+                    $this->load->view("template_paciente/meus_dados", $dados);
+                    $this->load->view('layout_principal/footer');
                 }
             } elseif($txt['id_perfil'] == 2  && @$txt['saldoDevedor'] == 1){echo"<br>perfil é dois ".$txt['id_perfil'];exit;
                     $msg = "<font color='red' size='3'><B> Você possui mensalidades em aberto neste mês!  <a href='/pagamento/medico/" .$perfil['id_usuario'] . "/" . $txt['id_plano'] ."'><font color='red' size='3'><B>CLIQUE AQUI!</B></font></a> para realizar o pagamento!</B></font>";

@@ -53,12 +53,15 @@
                                                         <td><?php echo $consulta->nm_medico ?></td>
                                                         <td>
                                                             <?php
-                                                            $this->db->where('id_consulta',$consulta->id_consulta);$txt = $this->db->get('consulta_medico_avaliacao')->result();
-                                                            if ($txt){
-                                                                echo "Nota: " . $txt[0]->nota;
-                                                            } else {
-                                                            ?>
-                                                            <a href="" onclick="avaliar('<?=$consulta->id_consulta;?>','<?=$consulta->id_medico;?>')" data-modal="md-avaliacao" class="md-trigger">Avaliar</a>
+                                                                echo"<br>id da consulta: ".$consulta->id_consulta;die;
+                                                                //$this->db->where('id_consulta',$consulta->id_consulta);
+                                                                $txt = '1';//$this->db->get('consulta_medico_avaliacao')->result();
+                                                                //echo"<br>result: ".$txt;die;
+                                                                if ($txt){
+                                                                    echo "Nota: " . $txt[0]->nota;
+                                                                } else {
+                                                                ?>
+                                                                <a href="" onclick="avaliar('<?=$consulta->id_consulta;?>','<?=$consulta->id_medico;?>')" data-modal="md-avaliacao" class="md-trigger">Avaliar</a>
                                                         </td>
                                                         <?php } ?>
                                                         <td>
@@ -398,16 +401,12 @@
             }
         });
     }
-</script>
-<script src="../../../sites/beagle/dist/html/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
-<script src="../../../sites/beagle/dist/html/assets/lib/jquery.niftymodals/dist/jquery.niftymodals.js" type="text/javascript"></script>
-<script type="text/javascript">
+
     $(document).ready(function(){
         //initialize the javascript
         App.init();
     });
-</script>
-<script type="text/javascript">
+
     $.fn.niftyModal('setDefaults',{
         overlaySelector: '.modal-overlay',
         closeSelector: '.modal-close',
@@ -419,3 +418,5 @@
         App.init();
     });
 </script>
+<script src="../../../sites/beagle/dist/html/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<script src="../../../sites/beagle/dist/html/assets/lib/jquery.niftymodals/dist/jquery.niftymodals.js" type="text/javascript"></script>

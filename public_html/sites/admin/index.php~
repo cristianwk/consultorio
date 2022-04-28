@@ -6,7 +6,7 @@
 
 	if (!$obj_seguranca->usuario_existe($_SESSION['login']) and $_SESSION['logado'] and $_SESSION['perfil'] > -1) {
 
-		session_destroy();
+		//session_destroy();
 
 	} else {
 
@@ -112,7 +112,7 @@
             </td>
         </tr>
 
-		<!-- rodapé -->
+		<!-- rodapï¿½ -->
 
         <tr>
             <td colspan="<?=$colspan?>" class="rodape"><?=RODAPE?></td>

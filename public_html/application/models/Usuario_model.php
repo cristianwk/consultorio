@@ -43,9 +43,9 @@ class Usuario_Model extends CI_Model{
      */
     public function login($nm_login, $ps_login)
     {   
-        echo"<br><br>usuario MODEL:";
-        echo"<br>login: ".$nm_login;
-        echo"<br>pwd: ".$ps_login;
+        //echo"<br><br>usuario MODEL:";
+        //echo"<br>login: ".$nm_login;
+        //echo"<br>pwd: ".$ps_login;
         
         $timezone = new DateTimeZone("America/Sao_Paulo");
         $dataIni = new DateTimeImmutable();//new DateTime("today", $timezone);
@@ -55,7 +55,7 @@ class Usuario_Model extends CI_Model{
         $this->db->where('ps_login', $ps_login);
         $data = $this->db->get('usuarios')->result();
         $dt_atual = $dataIni->format('d');
-        echo"<br>data::<pre>";print_r($data);echo"</pre>";
+        //echo"<br>data::<pre>";print_r($data);echo"</pre>";
 
         if (count($data)===1){
             if ($data[0]->id_perfil == 2) {

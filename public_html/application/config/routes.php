@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 //
+//echo"routes: <pre>";print_r($_SESSION);echo"</pre>";exit; 
 //$route['default_controller'] = 'LancamentoControler';//inicia na pagina de lancamento
 $route['default_controller'] = 'welcome';//inicia no site
 $route['contato_site'] = 'welcome/contato';

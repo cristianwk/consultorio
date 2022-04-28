@@ -44,7 +44,7 @@ header('Content-Type: text/html; charset=utf-8');
 	
 			} elseif ($_POST['txt_login'] and $_POST['txt_senha']) {
 	
-				$mesg .= "Usu�rio n�o autorizado";
+				$mesg .= "Usuário não autorizado";
 				session_destroy();
 				header("location:./../../");
 	
