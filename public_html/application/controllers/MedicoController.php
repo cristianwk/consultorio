@@ -29,7 +29,7 @@ class MedicoController extends CI_Controller
         $this->load->model('Charts_model','charts');
     }
 
-    public function perfil($txt)
+    public function perfil()
     {
         //echo"<br>medicoController::<pre>";print_r($GLOBALS);echo"<pre>";exit;
         $id = $this->session->usuario->id_usuario;
