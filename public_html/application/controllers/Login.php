@@ -23,22 +23,27 @@ class Login extends CI_Controller
     }
 
     public function auth()
-    {   //echo"Estou no login Controller";exit;
+    {   
+        echo"<br>Estou no login Controller";
+        echo"<br>post: <pre>";print_r($_POST);echo"</pre>";
+        $nm_login = $this->input->post('nm_login');
+        $ps_login = md5($this->input->post('ps_login'));
+        $txt = $this->usuario->login($nm_login, $ps_login);//vai em usuario_model.php:44
+        //echo"<br>nm_login: ".$nm_login;die;
+
         $ajax = $this->input->post('requisicao');
         $urlRetorno = $this->input->post('urlRetorno');
 
-        $nm_login = $this->input->post('email');
-        $ps_login = md5($this->input->post('ps_login'));
-        $txt = $this->usuario->login($nm_login, $ps_login);//vai em usuario_model.php:44
+        //echo"<br>post: <pre>";print_r($txt);echo"</pre>";die;
 
         $this->db->where('nm_login', $nm_login);
         $this->db->where('ps_login', $ps_login);
         $perfil = $this->db->get('usuarios')->result();
 
         //echo"Controller: <pre>txt: ";print_r($txt);echo"</pre>";
-        //echo"<br>post: <pre>";print_r($perfil);echo"</pre>";die;
+        echo"<br>post: <pre>";print_r($perfil);echo"</pre>";
 
-        if(empty($txt)){//echo"<br>aqui1";exit;
+        if(empty($txt)){echo"<br>aqui1";exit;
             $this->session->set_flashdata('msg', 'Error! - Login ou Senha não conferem!');
             return redirect('/login');
         }
@@ -48,15 +53,19 @@ class Login extends CI_Controller
         }
         //echo"<br>saldo: ".$txt['saldoDevedor'];
         if (!empty($txt)){
-            //echo"<br>txt: <pre>";print_r($txt);echo"</pre>";die;
-            //echo"<br>perfil: ";echo $txt['id_perfil'];
-            if ($txt['id_perfil'] == 1) {//echo"<br>perfil é um ".$perfil['id_perfil'];exit;
-                if($ajax == 'ajax'){
+            echo"<br>txt: <pre>";print_r($txt);echo"</pre>";
+            echo"<br>perfilXX:<pre> ";print_r($perfil);echo"</pre>";
+            //echo"<br>perfil1 é um ".$txt['id_perfil']."--";
+            
+            if ($txt['id_perfil'] == 1) {//echo"<br>perfil2 é um ".$txt['id_perfil'];exit;
+                if($ajax == 'ajax'){echo"<br>é asdf";exit;
                     echo json_encode( array( 'logado' => true ) );
                 } else {//echo"<br>é paciente";exit;
+                    //$_SESSION['usuario']->id_usuario = $txt['id_usuario'];
+                    $this->session->set_userdata('user_id', $txt['id_usuario']);
                     return redirect('/paciente/perfil');
                 }
-            } elseif($txt['id_perfil'] == 2  && @$txt['saldoDevedor'] == 1){//echo"<br>perfil é dois ".$txt['id_perfil'];exit;
+            } elseif($txt['id_perfil'] == 2  && @$txt['saldoDevedor'] == 1){echo"<br>perfil é dois ".$txt['id_perfil'];exit;
                     $msg = "<font color='red' size='3'><B> Você possui mensalidades em aberto neste mês!  <a href='/pagamento/medico/" .$perfil['id_usuario'] . "/" . $txt['id_plano'] ."'><font color='red' size='3'><B>CLIQUE AQUI!</B></font></a> para realizar o pagamento!</B></font>";
                 $this->session->set_flashdata('msg2', $msg);
                     return redirect('/login');
@@ -81,11 +90,11 @@ class Login extends CI_Controller
                     $this->session->set_flashdata('msg2', $msg);
                     return redirect('/login');
                 }
-                else {
+                else {echo"<br>asdf";exit;
                     return redirect('/medico/perfil');
                 }
             }
-            else {echo"<br>aqui2";
+            else {echo"<br>aqui2";exit;
                 //se é plano pago e esta em dia entra aqui
                 //echo"<pre>x: ";print_r($txt);echo"</pre>";exit;
                 return redirect('/medico/perfil/', $txt);

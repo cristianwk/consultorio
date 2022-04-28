@@ -42,7 +42,11 @@ class Usuario_Model extends CI_Model{
      * @return array|bool
      */
     public function login($nm_login, $ps_login)
-    {   //echo"MODEL: <br>estou aqui";
+    {   
+        echo"<br><br>usuario MODEL:";
+        echo"<br>login: ".$nm_login;
+        echo"<br>pwd: ".$ps_login;
+        
         $timezone = new DateTimeZone("America/Sao_Paulo");
         $dataIni = new DateTimeImmutable();//new DateTime("today", $timezone);
         //@$today = date('Y-m', $dataIni);
@@ -51,7 +55,7 @@ class Usuario_Model extends CI_Model{
         $this->db->where('ps_login', $ps_login);
         $data = $this->db->get('usuarios')->result();
         $dt_atual = $dataIni->format('d');
-        //echo"<pre>";print_r($data);echo"</pre>";
+        echo"<br>data::<pre>";print_r($data);echo"</pre>";
 
         if (count($data)===1){
             if ($data[0]->id_perfil == 2) {
@@ -60,8 +64,8 @@ class Usuario_Model extends CI_Model{
                 //echo"<br>valida mensalidade1:<pre> ";print_r($x);echo"</pre>";
                 $plano = $this->getPlanoId($data[0]->id_usuario);
                 //echo"<br>plano:".$plano[0]->id_plano;
-                //echo"<br>plano: <pre>";print_r($plano);echo"</pre>";
-                //echo "<br>valida mensalidade2:<pre> ";print_r($x);echo"</pre>";
+                echo"<br>plano: <pre>";print_r($plano);echo"</pre>";
+                echo "<br>valida mensalidade2:<pre> ";print_r($x);echo"</pre>";
                     if ($this->validaMensalidade(@$data[0]->id_usuario, @$today)) {echo"<br>um";
                         $dados = array('usuario' => $data[0], 'logado' => TRUE);
                         //$this->session->set_userdata($dados);
